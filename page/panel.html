@@ -1,0 +1,159 @@
+<!--Header-->
+<div class="row header">
+    <div class="col-xs-12">
+        <div class="meta pull-left">
+            <div class="page">
+                Template
+            </div>
+            <div class="breadcrumb-links">
+                Openstack
+            </div>
+        </div>
+        <div class="user pull-right">
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <img src="img/avatar.jpg">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Joe Bloggs
+                    </li>
+                    <li class="divider"></li>
+                    <li class="link">
+                        <a href="#">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#">
+                            Menu Item
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#">
+                            Menu Item
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="link">
+                        <a href="#">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa fa-bell-o"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Notifications
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">Server Down!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content -->
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="widget-icon blue pull-left">
+                    <i class="fa fa-sitemap"></i>
+                </div>
+                <div class="widget-content pull-left">
+                    <div class="title">{{date.server_num}}</div>
+                    <div class="comment">Servers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="widget-icon orange pull-left">
+                    <i class="fa fa-tasks"></i>
+                </div>
+                <div class="widget-content pull-left">
+                    <div class="title">{{date.IPMI_num}}</div>
+                    <div class="comment">IPMI</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="widget-icon green pull-left">
+                    <i class="fa fa-sun-o"></i>
+                </div>
+                <div class="widget-content pull-left">
+                    <div class="title">{{date.Started}}</div>
+                    <div class="comment">Started</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="spacer visible-xs"></div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="widget-icon red pull-left">
+                    <i class="fa fa-power-off"></i>
+                </div>
+                <div class="widget-content pull-left">
+                    <div class="title">{{date.shutdown}}</div>
+                    <div class="comment">Shutdown</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-10 col-xs-11 col-lg-offset-1" id="table">
+        <div class="panel panel-default tablepanel">
+            <div class="panel-heading tablepanelh">
+                <i class="fa fa-tasks fa-2x"></i><span>Work Status</span>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <tr class="info">
+                            <td class="title">Server ID</td>
+                            <td class="title">Status</td>
+                            <td class="title">Role</td>
+                            <td class="title">Current Role</td>
+                        </tr>
+                        <tr ng-repeat="status in date.server_list">
+                            <td>{{status.id}}</td>
+                            <td>{{status.status}}</td>
+                            <td>
+                                <select class="form-control" ng-options="role for role in roles" ng-model="status.role" ng-disabled="status.status === 'Shutdown'">
+                                </select>
+                            </td>
+                            <td>{{status.current_role}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1 col-xs-1">
+        <a href="#/panel2" id="next"><i class="fa fa-chevron-right fa-5x"></i></a>
+    </div>
+</div>
+<div class="row col-lg-12 col-xs-12 col-lg-offset-" id="button">
+    <button class="btn btn-default btn-lg">Save Deploment</button>
+    <button class="btn btn-default btn-lg" ng-click="getData()">Export csv File</button>
+    <button class="btn btn-default btn-lg">Kickoff to Install</button>
+</div>

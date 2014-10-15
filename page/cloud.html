@@ -1,0 +1,129 @@
+<!--Header-->
+<div class="row header">
+    <div class="col-xs-12">
+        <div class="meta pull-left">
+            <div class="page">
+                PLATFORM TEMPLATE
+            </div>
+            <div class="breadcrumb-links">
+                Cloud Foundry V1
+            </div>
+        </div>
+        <div class="user pull-right">
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <img src="img/avatar.jpg">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Joe Bloggs
+                    </li>
+                    <li class="divider"></li>
+                    <li class="link">
+                        <a href="#">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#">
+                            Menu Item
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#">
+                            Menu Item
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="link">
+                        <a href="#">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa fa-bell-o"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Notifications
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">Server Down!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--main-->
+<div class="col-lg-10 col-lg-offset-1">
+<div class="panel panel-info">
+    <div class="panel-heading paneltitle">Creat Cloud Foundry Stack</div>
+    <div class="panel-body">
+        <form class="form-horizontal" id="cloudinput">
+            <div class="form-group">
+                <label for="OpenStack Deployment" class="col-lg-4">OpenStack Deployment:</label>
+                <div>
+                    <select class="form-control put" id="OpenStack Deployment">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Project" class="col-lg-4">Project:</label>
+                <div>
+                    <select class="form-control put" id="Project">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">Cloud Foundry Domain:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">uua uri:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">ccdb type:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">System Disk Partition:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">NTP Server:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">Nagios Server:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3">Monitor Server:</label>
+                <input type="text" class="form-control" ng-model="template.tor_dns">
+            </div>
+        </form>
+    </div>
+</div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+           <tr>
+               <td>Step ID</td>
+               <td>Step Name</td>
+               <td>Status</td>
+           </tr>
+            <tr cl in cloud_list>
+                <td>{{cloud.id}}</td>
+                <td>{{cloud.name}}</td>
+                <td>{{cloud.status}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--Header-->
+<div class="row header">
+    <div class="col-xs-12">
+        <div class="meta pull-left">
+            <div class="page">
+                Home/Task
+            </div>
+            <div class="breadcrumb-links">
+                Template/Openstack
+            </div>
+        </div>
+        <div class="user pull-right">
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <img src="img/avatar.jpg">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Joe Bloggs
+                    </li>
+                    <li class="divider"></li>
+                    <li class="link">
+                        <a href="#">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#">
+                            Menu Item
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="#">
+                            Menu Item
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="link">
+                        <a href="#">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa fa-bell-o"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-header">
+                        Notifications
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">Server Down!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--main-->
+<div class="row">
+    <div class="col-lg-1">
+        <a href="#/panel" id="prev"><i class="fa fa-chevron-left fa-5x"></i></a>
+    </div>
+    <div class="col-lg-10">
+    <div class="panel panel-info">
+        <div class="panel-heading paneltitle">Deploy Existed Deployment</div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <fieldset disabled>
+                    <div class="form-group">
+                        <label for="disabledSelect"></label>
+                        <div class="col-lg-5">
+                        <select id="disabledSelect" class="form-control">
+                            <option>Disabled select</option>
+                        </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn btn-primary">Deploy</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading paneltitle">Deploy CSV Manifest</div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="uploadinput">
+                <div class="form-group">
+                    <label class="col-lg-3">Deployment Id</label>
+                    <input type="text" class="form-control" ng-model="template.deployment_id" placeholder="Please Enter a deployment id">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Tor DNS</label>
+                    <input type="text" class="form-control" ng-model="template.tor_dns" placeholder="Please Enter a Tor Dns">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Admin Password</label>
+                    <input type="password" class="form-control" ng-model="template.admin_password" placeholder="Please Enter a admin password">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Admin Email</label>
+                    <input type="email" class="form-control" ng-model="template.admin_email" placeholder="Please Enter a Admin Email">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Monitor Server IP</label>
+                    <input type="text" class="form-control" ng-model="template.monitor_server_ip" placeholder="Please Enter a Monitor Server IP">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Ntp Server</label>
+                    <input type="text" class="form-control" ng-model="template.ntp_server" placeholder="Please Enter a Ntp Server">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Api Network</label>
+                    <input type="text" class="form-control" ng-model="template.api_network" placeholder="Please Enter a Api Network">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">External Network</label>
+                    <input type="text" class="form-control" ng-model="template.external_network" placeholder="Please Enter a External Network">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Management Network</label>
+                    <input type="text" class="form-control" ng-model="template.management_network" placeholder="Please Enter a Management Network">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Data Network</label>
+                    <input type="text" class="form-control" ng-model="template.data_network" placeholder="Please Enter a Data Network">
+                </div>
+
+                <div class="form-group">
+                    <label for="csvfile"></label>
+                    <input type="file" ng-model="template.csv" name="csvfile" id="csvfile">
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" ng-click="deploy()" id="submit">Deploy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <tr class="info">
+                <td>Step ID</td>
+                <td>Step Name</td>
+                <td>Status</td>
+            </tr>
+            <tr ng-repeat="status in deploy.steps">
+                <td>{{status.id}}</td>
+                <td>{{status.name}}</td>
+                <td>{{status.Status}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>
